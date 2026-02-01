@@ -1,0 +1,46 @@
+spring:
+  data:
+    mongodb:
+      uri: ${MONGODB_URI:mongodb://username:password@production-host:27017/sri-karthikeya-caterers?authSource=admin}
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+aws:
+  s3:
+    access-key: ${AWS_ACCESS_KEY}
+    secret-key: ${AWS_SECRET_KEY}
+    bucket-name: ${AWS_BUCKET_NAME}
+    region: ${AWS_REGION:ap-south-2}
+
+server:
+  port: ${SERVER_PORT:8080}
+  error:
+    include-message: never
+    include-binding-errors: never
+    include-stacktrace: never
+  ssl:
+    enabled: ${SSL_ENABLED:false}
+    key-store: ${SSL_KEYSTORE:classpath:keystore.p12}
+    key-store-password: ${SSL_PASSWORD:}
+    key-store-type: PKCS12
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    enabled: ${SWAGGER_ENABLED:false}
+
+logging:
+  level:
+    sri.karthikeya.caterers: INFO
+    org.springframework: WARN
+    org.springframework.data.mongodb: WARN
+  file:
+    name: ${LOG_FILE:/var/log/sri-karthikeya-caterers/application.log}
+    max-size: 10MB
+    max-history: 30
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"

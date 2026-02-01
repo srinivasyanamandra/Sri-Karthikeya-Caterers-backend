@@ -44,7 +44,3 @@ logs/
 ### OS ###
 .DS_Store
 Thumbs.db
-
-### Application ###
-application-local.yaml
-application-prod.yaml
